@@ -2,12 +2,12 @@ package areaCalculator;
 
 public class Circle implements Shape {
 
-    private double diameter;
+    private double radius;
     private double area;
 
-    public Circle(double diameter) {
-        if (diameter > 0) {
-            this.diameter = diameter;
+    public Circle(double radius) {
+        if (radius > 0) {
+            this.radius = radius;
         }
     }
 
@@ -15,8 +15,8 @@ public class Circle implements Shape {
         this.area = area;
     }
 
-    public double getDiameter() {
-        return diameter;
+    public double getRadius() {
+        return radius;
     }
 
     public double getArea() {

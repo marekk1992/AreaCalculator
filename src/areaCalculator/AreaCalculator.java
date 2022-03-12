@@ -18,26 +18,25 @@ public class AreaCalculator {
     public void calculateArea() {
         for (Shape shape : shapeList) {
             if (shape instanceof Rectangle) {
-                calculateRectangleArea(shape);
-            }
-            if (shape instanceof Circle) {
-                calculateCircleArea(shape);
+                Rectangle rectangle = (Rectangle) shape;
+                calculateRectangleArea(rectangle);
+            } else if (shape instanceof Circle) {
+                Circle circle = (Circle) shape;
+                calculateCircleArea(circle);
             }
         }
     }
 
-    private void calculateRectangleArea(Shape shape) {
-        ((Rectangle) shape).setArea(((Rectangle) shape).getLength()
-                * ((Rectangle) shape).getWidth());
-        System.out.println("Rectangle {length=" + ((Rectangle) shape).getLength()
-                + ", width=" + ((Rectangle) shape).getWidth()
-                + "} area=" + String.format("%.2f", ((Rectangle) shape).getArea()));
+    private void calculateRectangleArea(Rectangle rectangle) {
+        rectangle.setArea(rectangle.getLength() * rectangle.getWidth());
+        System.out.println("Rectangle {length=" + rectangle.getLength()
+                + ", width=" + rectangle.getWidth()
+                + "} area=" + String.format("%.2f", rectangle.getArea()));
     }
 
-    private void calculateCircleArea(Shape shape) {
-        double radius = ((Circle) shape).getDiameter() / 2.00;
-        ((Circle) shape).setArea(Math.PI * radius * radius);
-        System.out.println("Circle {diameter=" + ((Circle) shape).getDiameter()
-                + "} area=" + String.format("%.2f", ((Circle) shape).getArea()));
+    private void calculateCircleArea(Circle circle) {
+        circle.setArea(Math.PI * circle.getRadius() * circle.getRadius());
+        System.out.println("Circle {radius=" + circle.getRadius()
+                + "} area=" + String.format("%.2f", circle.getArea()));
     }
 }

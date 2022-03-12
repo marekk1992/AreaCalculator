@@ -1,7 +1,5 @@
 package areaCalculator;
 
-import java.util.*;
-
 public class Rectangle implements Shape {
 
     private double length;
@@ -21,27 +19,15 @@ public class Rectangle implements Shape {
         this.area = area;
     }
 
-    @Override
-    public List saveFields() {
-        List list = new ArrayList();
-        list.add(0, length);
-        list.add(1, width);
-        list.add(2, area);
-
-        return list;
+    public double getLength() {
+        return length;
     }
 
-    @Override
-    public void updateField(double area) {
-        setArea(area);
+    public double getWidth() {
+        return width;
     }
 
-    @Override
-    public String toString() {
-        return "Rectangle{" +
-                "length=" + length +
-                ", width=" + width +
-                ", area=" + area +
-                '}';
+    public double getArea() {
+        return area;
     }
 }

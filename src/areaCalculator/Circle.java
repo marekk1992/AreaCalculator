@@ -1,8 +1,5 @@
 package areaCalculator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Circle implements Shape {
 
     private double diameter;
@@ -18,25 +15,11 @@ public class Circle implements Shape {
         this.area = area;
     }
 
-    @Override
-    public List saveFields() {
-        List list = new ArrayList();
-        list.add(0, diameter);
-        list.add(1, area);
-
-        return list;
+    public double getDiameter() {
+        return diameter;
     }
 
-    @Override
-    public void updateField(double area) {
-        setArea(area);
-    }
-
-    @Override
-    public String toString() {
-        return "Circle{" +
-                "diameter=" + diameter +
-                ", area=" + area +
-                '}';
+    public double getArea() {
+        return area;
     }
 }

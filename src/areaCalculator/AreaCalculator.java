@@ -15,36 +15,29 @@ public class AreaCalculator {
         shapeList.add(shape);
     }
 
-    public void calculateArea(List<Shape> list) {
-        for (Shape shape : list) {
-            String typeOfShape = shape.getClass().getSimpleName();
-            List listOfFields = shape.saveFields();
-            switch (typeOfShape) {
-                case "Rectangle":
-                    double area = areaOfRectangle(listOfFields);
-                    shape.updateField(area);
-                    System.out.println("Rectangle area = " + area);
-                    break;
-                case "Circle":
-                    area = areaOfCircle(listOfFields);
-                    shape.updateField(area);
-                    System.out.println("Circle area = " + area);
-                    break;
+    public void calculateArea() {
+        for (Shape shape : shapeList) {
+            if (shape instanceof Rectangle) {
+                calculateRectangleArea(shape);
+            }
+            if (shape instanceof Circle) {
+                calculateCircleArea(shape);
             }
         }
     }
 
-    public List<Shape> getShapeList() {
-        return shapeList;
+    private void calculateRectangleArea(Shape shape) {
+        ((Rectangle) shape).setArea(((Rectangle) shape).getLength()
+                * ((Rectangle) shape).getWidth());
+        System.out.println("Rectangle {length=" + ((Rectangle) shape).getLength()
+                + ", width=" + ((Rectangle) shape).getWidth()
+                + "} area=" + String.format("%.2f", ((Rectangle) shape).getArea()));
     }
 
-    private double areaOfRectangle(List listOfFields) {
-        return Double.parseDouble(listOfFields.get(0).toString())
-                * Double.parseDouble(listOfFields.get(1).toString());
-    }
-
-    private double areaOfCircle(List listOfFields) {
-        double radius = Double.parseDouble(listOfFields.get(0).toString()) / 2.00;
-        return Math.PI * radius * radius;
+    private void calculateCircleArea(Shape shape) {
+        double radius = ((Circle) shape).getDiameter() / 2.00;
+        ((Circle) shape).setArea(Math.PI * radius * radius);
+        System.out.println("Circle {diameter=" + ((Circle) shape).getDiameter()
+                + "} area=" + String.format("%.2f", ((Circle) shape).getArea()));
     }
 }

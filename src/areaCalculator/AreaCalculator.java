@@ -23,6 +23,12 @@ public class AreaCalculator {
             } else if (shape instanceof Circle) {
                 Circle circle = (Circle) shape;
                 calculateCircleArea(circle);
+            } else if (shape instanceof Triangle) {
+                Triangle triangle = (Triangle) shape;
+                calculateTriangleArea(triangle);
+            } else if (shape instanceof Trapezium) {
+                Trapezium trapezium = (Trapezium) shape;
+                calculateTrapeziumArea(trapezium);
             }
         }
     }
@@ -38,5 +44,19 @@ public class AreaCalculator {
         circle.setArea(Math.PI * circle.getRadius() * circle.getRadius());
         System.out.println("Circle {radius=" + circle.getRadius()
                 + "} area=" + String.format("%.2f", circle.getArea()));
+    }
+
+    private void calculateTriangleArea(Triangle triangle) {
+        triangle.setArea((triangle.getHeight() * triangle.getWidth()) / 2.0);
+        System.out.println("Triangle {height=" + triangle.getHeight()
+                + ", width=" + triangle.getWidth() + "} area=" + String.format("%.2f", triangle.getArea()));
+    }
+
+    private void calculateTrapeziumArea(Trapezium trapezium) {
+        trapezium.setArea(((trapezium.getLongBase() + trapezium.getShortBase()) / 2.0)
+                * trapezium.getHeight());
+        System.out.println("Trapezium {longBase=" + trapezium.getLongBase()
+                + ", shortBase=" + trapezium.getShortBase() + ", height"
+                + trapezium.getHeight() + "} area=" + String.format("%.2f", trapezium.getArea()));
     }
 }

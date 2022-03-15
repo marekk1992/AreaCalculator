@@ -3,7 +3,6 @@ package areaCalculator;
 public class Circle implements Shape {
 
     private double radius;
-    private double area;
 
     public Circle(double radius) {
         if (radius > 0) {
@@ -11,15 +10,15 @@ public class Circle implements Shape {
         }
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
     }
 
-    public double getRadius() {
-        return radius;
-    }
-
-    public double getArea() {
-        return area;
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                "}, area=" + String.format("%.2f", calculateArea());
     }
 }

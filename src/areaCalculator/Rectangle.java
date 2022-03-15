@@ -4,7 +4,6 @@ public class Rectangle implements Shape {
 
     private double length;
     private double width;
-    private double area;
 
     public Rectangle(double length, double width) {
         if (length > 0) {
@@ -15,19 +14,16 @@ public class Rectangle implements Shape {
         }
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    @Override
+    public double calculateArea() {
+        return length * width;
     }
 
-    public double getLength() {
-        return length;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getArea() {
-        return area;
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "length=" + length +
+                ", width=" + width +
+                "}, area=" + String.format("%.2f", calculateArea());
     }
 }

@@ -3,7 +3,7 @@ package areaCalculator;
 public class Main {
 
     public static void main(String[] args) {
-        Shape firstShape = new Rectangle(3, 22.3);
+        Shape firstShape = new Rectangle(3, 22.33);
         Shape secondShape = new Circle(22.5);
         Shape thirdShape = new Rectangle(10, 6.5);
         Shape fourthShape = new Triangle(5.35, 3);

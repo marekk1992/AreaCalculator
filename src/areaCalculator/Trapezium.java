@@ -18,27 +18,17 @@ public class Trapezium implements Shape {
         }
     }
 
-    private double area;
-
-
-
-    public void setArea(double area) {
-        this.area = area;
+    @Override
+    public double calculateArea() {
+        return ((longBase + shortBase) / 2) * height;
     }
 
-    public double getLongBase() {
-        return longBase;
-    }
-
-    public double getShortBase() {
-        return shortBase;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public double getArea() {
-        return area;
+    @Override
+    public String toString() {
+        return "Trapezium{" +
+                "shortBase=" + shortBase +
+                ", longBase=" + longBase +
+                ", height=" + height +
+                "}, area=" + String.format("%.2f", calculateArea());
     }
 }

@@ -4,7 +4,6 @@ public class Triangle implements Shape {
 
     private double width;
     private double height;
-    private double area;
 
     public Triangle(double width, double height) {
         if (width > 0) {
@@ -15,19 +14,16 @@ public class Triangle implements Shape {
         }
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    @Override
+    public double calculateArea() {
+        return (height * width) / 2;
     }
 
-    public double getWidth() {
-        return width;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public double getArea() {
-        return area;
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "width=" + width +
+                ", height=" + height +
+                "}, area=" + String.format("%.2f", calculateArea());
     }
 }
